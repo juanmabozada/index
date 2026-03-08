@@ -2,52 +2,84 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Contador del bebé 👶</title>
+<title>La sorpresa del bebé 👶</title>
 
 <style>
+
 body{
-    font-family: Arial;
+    font-family: Arial, sans-serif;
     text-align:center;
-    background:#f7f2ff;
+    background: linear-gradient(135deg,#ffd6ec,#d6eaff);
+    height:100vh;
+    margin:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:white;
     padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    max-width:500px;
 }
 
 h1{
-    color:#6a4caf;
+    font-size:32px;
 }
 
 #contador{
-    font-size:40px;
-    margin:30px;
+    font-size:32px;
+    margin-top:20px;
+    font-weight:bold;
 }
 
 #revelacion{
     display:none;
     font-size:30px;
-    color:#ff4da6;
+    margin-top:20px;
 }
+
+.nombre{
+    font-size:36px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
 </style>
 
 </head>
 
 <body>
 
+<div class="container">
+
 <h1>👶 Nuestro bebé viene en camino</h1>
 
-<p>La familia tendrá una sorpresa muy pronto...</p>
+<p>Muy pronto descubriremos una gran sorpresa...</p>
 
 <div id="contador"></div>
 
 <div id="revelacion">
-🎉 ¡Es una NIÑA! <br><br>
-Se llamará <b>Laia Bozada Orellana</b> 💖
+
+🎉 ¡ES UNA NIÑA! 🎉
+
+<div class="nombre">
+Laia Bozada Orellana 💝
 </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
 
-let fechaEco = new Date("2026-03-08 22:25:00").getTime();
+let fechaEco = new Date("2026-08-03 22:30:00").getTime();
 
-let x = setInterval(function(){
+let contador = setInterval(function(){
 
 let ahora = new Date().getTime();
 let distancia = fechaEco - ahora;
@@ -55,28 +87,54 @@ let distancia = fechaEco - ahora;
 let dias = Math.floor(distancia/(1000*60*60*24));
 let horas = Math.floor((distancia%(1000*60*60*24))/(1000*60*60));
 let minutos = Math.floor((distancia%(1000*60*60))/(1000*60));
+let segundos = Math.floor((distancia%(1000*60))/1000);
 
 document.getElementById("contador").innerHTML =
-"⏳ Faltan " + dias + " días " + horas + " horas " + minutos + " minutos";
+"⏳ " + dias + " días " + horas + " h " + minutos + " m " + segundos + " s";
 
 if(distancia < 0){
-    clearInterval(x);
-    document.getElementById("contador").style.display="none";
-    document.getElementById("revelacion").style.display="block";
 
-    confetti({
-        particleCount: 200,
-        spread: 120,
-        origin: { y: 0.6 }
-    });
+clearInterval(contador);
+
+document.getElementById("contador").style.display="none";
+document.getElementById("revelacion").style.display="block";
+
+lanzarConfeti();
+
 }
 
 },1000);
+
+function lanzarConfeti(){
+
+var duration = 5 * 1000;
+var end = Date.now() + duration;
+
+(function frame() {
+
+confetti({
+particleCount: 5,
+angle: 60,
+spread: 55,
+origin: { x: 0 }
+});
+
+confetti({
+particleCount: 5,
+angle: 120,
+spread: 55,
+origin: { x: 1 }
+});
+
+if (Date.now() < end) {
+requestAnimationFrame(frame);
+}
+
+}());
+
+}
 
 </script>
 
 </body>
 </html>
-
-
-
