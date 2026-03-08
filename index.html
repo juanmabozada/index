@@ -40,12 +40,12 @@ h1{
 
 <div id="revelacion">
 🎉 ¡Es una NIÑA! <br><br>
-Se llamará <b>Lara Bozada Orellana</b> 💖
+Se llamará <b>Laia Bozada Orellana</b> 💖
 </div>
 
 <script>
 
-let fechaEco = new Date("2026-03-08 22:16:00").getTime();
+let fechaEco = new Date("2026-03-08 22:20:00").getTime();
 
 let x = setInterval(function(){
 
@@ -63,6 +63,12 @@ if(distancia < 0){
     clearInterval(x);
     document.getElementById("contador").style.display="none";
     document.getElementById("revelacion").style.display="block";
+
+    confetti({
+        particleCount: 200,
+        spread: 120,
+        origin: { y: 0.6 }
+    });
 }
 
 },1000);
@@ -71,4 +77,5 @@ if(distancia < 0){
 
 </body>
 </html>
+
 
