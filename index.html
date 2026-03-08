@@ -22,7 +22,7 @@ body{
     padding:40px;
     border-radius:20px;
     box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    max-width:500px;
+    max-width:550px;
 }
 
 h1{
@@ -37,14 +37,29 @@ h1{
 
 #revelacion{
     display:none;
-    font-size:30px;
     margin-top:20px;
 }
 
-.nombre{
-    font-size:36px;
-    font-weight:bold;
+.sexo{
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.tituloNombre{
+    font-size:22px;
     margin-top:10px;
+}
+
+.nombre{
+    font-size:40px;
+    font-weight:bold;
+    margin-top:5px;
+}
+
+.mensaje{
+    margin-top:25px;
+    font-size:16px;
+    line-height:1.5;
 }
 
 </style>
@@ -63,10 +78,27 @@ h1{
 
 <div id="revelacion">
 
+<div class="sexo">
 🎉 ¡ES UNA NIÑA! 🎉
+</div>
+
+<div class="tituloNombre">
+Su nombre será
+</div>
 
 <div class="nombre">
-Laia Bozada Orellana 💝
+💝 Laia Bozada Orellana 💝
+</div>
+
+<div class="mensaje">
+Nos encantaría poder vivir este momento con vosotros en directo,
+pero la distancia lo hace un poco complicado.<br><br>
+
+Por eso, nos haría mucha ilusión que grabarais vuestra reacción
+cuando descubráis la sorpresa y nos la enviéis por WhatsApp 📱.<br><br>
+
+Así tendremos un recuerdo más de cómo empezó
+la historia de nuestro bebé ❤️
 </div>
 
 </div>
@@ -77,7 +109,7 @@ Laia Bozada Orellana 💝
 
 <script>
 
-let fechaEco = new Date("2026-03-08 22:45:00").getTime();
+let fechaEco = new Date("2026-03-08 23:05:00").getTime();
 
 let contador = setInterval(function(){
 
@@ -138,4 +170,3 @@ requestAnimationFrame(frame);
 
 </body>
 </html>
-
